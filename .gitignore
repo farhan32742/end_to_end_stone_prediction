@@ -13,6 +13,7 @@ env/
 # Distribution builds
 build/
 dist/
+artifacts/
 logs/
 mlruns/
 dataset/

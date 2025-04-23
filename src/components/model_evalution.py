@@ -12,16 +12,9 @@ from urllib.parse import urlparse
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from src.logger.logging import logging
 from src.exception.exception import CustomException
-import dagshub.auth
-dagshub.auth.clear_token_cache()
+dagshub.init(repo_owner='farhanfiaz79', repo_name='end_to_end_stone_prediction', mlflow=True)
+mlflow.set_tracking_uri("https://dagshub.com/farhanfiaz79/end_to_end_stone_prediction.mlflow")
 
-
-dagshub.init(repo_owner='farhanfiaz79', repo_name='stone_price_prediction', mlflow=True)
-
-mlflow.set_tracking_uri("https://dagshub.com/farhanfiaz79/stone_price_prediction.mlflow")
-
-
-#mlflow.set_tracking_uri("https://dagshub.com/farhanfiaz79/stone_price_prediction.mlflow")
 mlflow.set_experiment("mlops_with_sunny")
 #below line is used to set the tracking uri for local mlflow server
 #mlflow.set_tracking_uri("https://127.0.0.1:5000")

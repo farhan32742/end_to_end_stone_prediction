@@ -21,7 +21,7 @@ class DataIngestion:
     def initiate_Data_Ingestion(self):
         logging.info("data ingestion started")
         try:
-            data = pd.read_csv("dataset\cubic_zirconia.csv")
+            data = pd.read_csv("https://github.com/farhan32742/end_to_end_stone_prediction/blob/main/dataset/cubic_zirconia.csv")
             logging.info("reading a data frame")
         
 
