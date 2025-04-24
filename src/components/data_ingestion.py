@@ -21,7 +21,9 @@ class DataIngestion:
     def initiate_Data_Ingestion(self):
         logging.info("data ingestion started")
         try:
-            data = pd.read_csv("dataset\\cubic_zirconia.csv")
+            #data = pd.read_csv("dataset\\cubic_zirconia.csv")
+            data = pd.read_csv(os.path.join("dataset", "cubic_zirconia.csv"))
+
             logging.info("reading a data frame")
         
 
