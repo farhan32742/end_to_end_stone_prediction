@@ -5,7 +5,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 import mlflow
 import mlflow.sklearn
 import numpy as np
-import dagshub
 import pickle
 from src.utils.utils import load_object
 from urllib.parse import urlparse
