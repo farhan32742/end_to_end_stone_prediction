@@ -11,7 +11,12 @@ from urllib.parse import urlparse
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from src.logger.logging import logging
 from src.exception.exception import CustomException
+import dagshub
+dagshub.init(repo_owner='farhanfiaz79', repo_name='end_to_end_stone_prediction', mlflow=True)
 
+os.environ["MLFLOW_TRACKING_USERNAME"] = "farhanfiaz79"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "8d4d7f7854be2854a0c45573218b9c8b79a05cc4"
+os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/farhanfiaz79/end_to_end_stone_prediction.mlflow"
 mlflow.set_experiment("mlops_with_sunny")
 #below line is used to set the tracking uri for local mlflow server
 #mlflow.set_tracking_uri("https://127.0.0.1:5000")
@@ -40,7 +45,7 @@ class ModelEvaluation:
             
 
 
-            with mlflow.start_run():
+            with mlflow.start_run() as run:
                 predictions = model.predict(X_test)
                 rmse, mae, r2 = self.eval_metrics(y_test, predictions)
                 
@@ -52,13 +57,13 @@ class ModelEvaluation:
                 mlflow.sklearn.log_model(model, "model",input_example=example_input)
         
                 # Get the run_id
-                #run_id = run.info.run_id
+                run_id = run.info.run_id
         
                 # Generate the model_uri
-               # model_uri = f"runs:/{run_id}/model"
+                model_uri = f"runs:/{run_id}/model"
         
                  # Register the model
-                #mlflow.register_model(model_uri, "ml_model")
+                mlflow.register_model(model_uri, "ml_model")
 
 
                 
