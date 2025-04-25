@@ -15,7 +15,7 @@ import dagshub
 dagshub.init(repo_owner='farhanfiaz79', repo_name='end_to_end_stone_prediction', mlflow=True)
 
 os.environ["MLFLOW_TRACKING_USERNAME"] = "farhanfiaz79"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "8d4d7f7854be2854a0c45573218b9c8b79a05cc4"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "8d4d7f7854be2854a0c45573218b9c"
 os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/farhanfiaz79/end_to_end_stone_prediction.mlflow"
 mlflow.set_experiment("mlops_with_sunny")
 #below line is used to set the tracking uri for local mlflow server
