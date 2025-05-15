@@ -11,15 +11,15 @@ from urllib.parse import urlparse
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from src.logger.logging import logging
 from src.exception.exception import CustomException
-import dagshub
-dagshub.init(repo_owner='farhanfiaz79', repo_name='end_to_end_stone_prediction', mlflow=True)
+#import dagshub
+#dagshub.init(repo_owner='farhanfiaz79', repo_name='end_to_end_stone_prediction', mlflow=True)
 
-os.environ["MLFLOW_TRACKING_USERNAME"] = "farhanfiaz79"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "8d4d7f7854be2854a0c45573218b9c8b79a05cc4"
-os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/farhanfiaz79/end_to_end_stone_prediction.mlflow"
+#os.environ["MLFLOW_TRACKING_USERNAME"] = "farhanfiaz79"
+#os.environ["MLFLOW_TRACKING_PASSWORD"] = "8d4d7f7854be2854a0c45573218b9c8b79a05cc4"
+#os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/farhanfiaz79/end_to_end_stone_prediction.mlflow"
 mlflow.set_experiment("mlops_with_sunny")
 #below line is used to set the tracking uri for local mlflow server
-#mlflow.set_tracking_uri("https://127.0.0.1:5000")
+mlflow.set_tracking_uri("https://127.0.0.1:5000")
 class ModelEvaluation:
     def __init__(self):
         logging.info("Evaluation started")
